@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ExpertSystemHistory;
 
 class ExpertSystemController extends Controller
 {
     public function index()
     {
         return view('expert-system.form');
+    }
+
+    public function history()
+    {
+        $histories = ExpertSystemHistory::orderBy('created_at', 'desc')->paginate(10);
+        return view('expert-system.history', compact('histories'));
     }
 
     public function processRecommendation(Request $request)

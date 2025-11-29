@@ -9,3 +9,4 @@ Route::get('/', function () {
 
 Route::get('/expert-system', [ExpertSystemController::class, 'index'])->name('expert.system');
 Route::post('/expert-system/process', [ExpertSystemController::class, 'processRecommendation'])->name('expert.system.process');
+Route::get('/expert-system/history', [ExpertSystemController::class, 'history'])->name('expert.system.history');
